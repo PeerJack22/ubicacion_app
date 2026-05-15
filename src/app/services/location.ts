@@ -11,12 +11,18 @@ export class LocationService {
   }
 
   async getCurrentPosition(): Promise<Position> {
-    return Geolocation.getCurrentPosition({ enableHighAccuracy: true });
+    return Geolocation.getCurrentPosition({ 
+      enableHighAccuracy: true,
+      timeout: 30000  // 30 segundos
+    });
   }
 
   async watchPosition(onPos: (p: Position) => void, onErr?: (e: any) => void): Promise<string> {
     const id = await Geolocation.watchPosition(
-      { enableHighAccuracy: true },
+      { 
+        enableHighAccuracy: true,
+        timeout: 30000  // 30 segundos
+      },
       (pos, err) => {
         if (pos) onPos(pos);
         else if (err && onErr) onErr(err);
