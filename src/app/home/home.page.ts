@@ -3,6 +3,7 @@ import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonCon
 import { NgIf } from '@angular/common';
 import { LocationService } from '../services/location';
 import { FirebaseService } from '../services/firebase.service';
+import { SupabaseService } from '../services/supabase.service';
 
 @Component({
   selector: 'app-home',
@@ -22,7 +23,8 @@ export class HomePage implements OnInit {
 
   constructor(
     private loc: LocationService,
-    private firebase: FirebaseService
+    private firebase: FirebaseService,
+    private supabase: SupabaseService
   ) {}
 
   async ngOnInit() {
@@ -41,6 +43,10 @@ export class HomePage implements OnInit {
         pos.coords.latitude,
         pos.coords.longitude
       );
+      await this.supabase.guardarUbicacion(
+        pos.coords.latitude,
+        pos.coords.longitude
+      );  
     } catch (e: any) {
       this.errorMsg.set(e?.message ?? 'Error al obtener la ubicación actual');
     }
