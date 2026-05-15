@@ -3,7 +3,7 @@
 
 ## Descripción
 -----------
-Esta app obtiene la ubicación del dispositivo y la guarda en la nube (Firebase y opcionalmente Supabase). Permite ver coordenadas y abrir la posición en Google Maps.
+Esta app obtiene la ubicación del dispositivo y la guarda en la nube (Firebase y Supabase). Permite ver coordenadas y abrir la posición en Google Maps.
 
 ## Capturas
 --------
