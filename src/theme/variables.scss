@@ -1,0 +1,32 @@
+// For information on how to create your own theme, please see:
+// http://ionicframework.com/docs/theming/
+
+:root {
+	/* Primary purple */
+	--ion-color-primary: #6f42c1;
+	--ion-color-primary-rgb: 111,66,193;
+	--ion-color-primary-contrast: #ffffff;
+	--ion-color-primary-contrast-rgb: 255,255,255;
+
+	/* Dark background */
+	--ion-background-color: #000000;
+	--ion-text-color: #e6e6f0;
+
+	/* Secondary / accents */
+	--ion-color-secondary: #2b1a45;
+	--ion-color-tertiary: #9b59b6;
+
+	/* Buttons */
+	--ion-button-background: var(--ion-color-primary);
+	--ion-button-color: var(--ion-color-primary-contrast);
+}
+
+/* Force dark theme variables for consistency */
+body {
+	background: var(--ion-background-color) !important;
+	color: var(--ion-text-color) !important;
+}
+
+.ion-page, app-root {
+	background: var(--ion-background-color) !important;
+}

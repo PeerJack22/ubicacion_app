@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Mi Ubicación GPS (Standalone)</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card *ngIf="latitude() !== null && longitude() !== null">
+    <ion-card-header>
+      <ion-card-title>Coordenadas actuales</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Latitud:</strong> {{ latitude() }}</p>
+      <p><strong>Longitud:</strong> {{ longitude() }}</p>
+      <ion-button expand="block" color="primary" (click)="abrirEnGoogleMaps()">
+        <ion-icon slot="start" name="map-outline"></ion-icon>
+        Abrir ubicación en Google Maps
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <p *ngIf="errorMsg()">{{ errorMsg() }}</p>
+
+  <ion-button expand="block" (click)="obtenerUbicacionActual()">
+    <ion-icon slot="start" name="locate-outline"></ion-icon>
+    Obtener ubicación actual
+  </ion-button>
+</ion-content>
