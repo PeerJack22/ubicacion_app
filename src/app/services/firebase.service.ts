@@ -10,19 +10,9 @@ export class FirebaseService {
   private db: any;
 
   constructor() {
-    const firebaseConfig = {
-        apiKey: "AIzaSyARU3QrivlUt3E-99wKiQXfQFnCevp8fJk",
-        authDomain: "ubicacion-abaf1.firebaseapp.com",
-        projectId: "ubicacion-abaf1",
-        storageBucket: "ubicacion-abaf1.firebasestorage.app",
-        messagingSenderId: "652046353241",
-        appId: "1:652046353241:web:910739f3a8ff91dd520248"
-    };
-
-    const app = initializeApp(firebaseConfig);
+    const app = initializeApp(environment.firebase);
     this.db = getFirestore(app);
   }
-
 
   async guardarUbicacionFirebase(latitud: number, longitud: number) {
     try {
